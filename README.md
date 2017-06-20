@@ -149,7 +149,7 @@ CustomLog ${APACHE_LOG_DIR}/access.log combined
 sudo service apache reload
 
 ### Configure the Firewall (UFW) to only allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123)
-sudo ufw allow 2200/tcp
-sudo ufw allow 80/tcp
-sudo ufw allow 123/udp
-sudo ufw enable
+- sudo ufw allow 2200/tcp
+- sudo ufw allow 80/tcp
+- sudo ufw allow 123/udp
+- sudo ufw enable
