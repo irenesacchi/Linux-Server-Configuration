@@ -8,7 +8,7 @@ Take a Linux server on a virtual machine and host your web application, includin
 
 - Application URL: ec2-54-93-91-46.eu-central-1.compute.amazonaws.com
 
-#####Upgrade software
+### Upgrade software
 
 $ sudo apt-get update
 $ sudo apt-get upgrade
@@ -20,7 +20,7 @@ $ sudo apt-get install finger
 
 to check informations about a user.
 
-####Create new users and configuring ssh
+### Create new users and configuring ssh
 
 $ sudo adduser grader
 $ sudo cp /etc/sudoers.d/vagrant /etc/sudoers.d/grader
@@ -49,11 +49,11 @@ PasswordAuthentication no
 
 After this I exited the root login session and logged back into the server with my new user account and public key.
 
-##### How to Login as “Grader”
+### How to Login as “Grader”
 
 ssh grader@ec2-54-93-91-46.eu-central-1.compute.amazonaws.com -p 2200 -i ~/.ssh/udacity.pem
 
-#####Set the time zone
+### Set the time zone
 
 To set the time zone I ran the command:
 
@@ -61,17 +61,17 @@ $ sudo dpkg-reconfigure tzdata
 
 This opened a dialog. From the menu I selected 'None of the above' and then 'UTC.'
 
-#####Set up a firewall
+### Set up a firewall
 
 Next I configured a firewall to only allow incoming connections on ports 80, 123 and 2200:
 
-#####Instaled and configured Apache and mod-wsgi
+### Instaled and configured Apache and mod-wsgi
 
 Next I installed git, apache and mod-wsgi:
 
 sudo apt-get install apache2 libapache2-mod-wsgi git
 
-#####Installed python and other requierment for my application to run
+### Installed python and other requierment for my application to run
 
 sudo apt-get -qqy install postgresql python-psycopg2
 sudo apt-get -qqy install python-flask python-sqlalchemy
@@ -80,7 +80,7 @@ sudo apt-get -qqy install python-pip
 sudo pip install bleach
 sudo pip install oauth2client requests httplib2 redis passlib itsdangerous flask-httpauth
 
-#####Chanaged directory to
+### Chanaged directory to
 cd /var/www/
 
 #####Copy Catalog App from Github to /var/www/catalog
@@ -102,7 +102,7 @@ application.secret_key = 'super-secret-key'
 ```
 
 
-#####Change Default Apache Virtual Host to point to the catalog app
+### Change Default Apache Virtual Host to point to the catalog app
 cd /etc/apache2/sites-available/
 sudo vim 000-default.conf
 
@@ -145,7 +145,7 @@ CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 ```
 
-#####Reload Apache Config
+### Reload Apache Config
 sudo service apache reload
 
 
